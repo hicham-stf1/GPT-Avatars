@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import logo from '../../../public/logo.png';
+import logo from '/public/logo.png';
 import SideBarOption from "./SideBarItem";
 import { SiBrandfolder } from "react-icons/si";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { TbMessageChatbot } from "react-icons/tb";
+import { TbMoneybag } from "react-icons/tb";
+import WordCountProgress from "./WordCountProgress";
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const location = useLocation();
@@ -16,6 +20,8 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
   useEffect(() => {
     document.querySelector("body").classList.toggle("sidebar-expanded", hovered || sidebarOpen);
   }, [hovered, sidebarOpen]);
+
+  const sidebarExpanded = hovered || sidebarOpen;
 
   return (
     <div>
@@ -31,11 +37,11 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         ref={sidebar}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto 
+        className={`flex flex-col justify-between absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto 
           lg:translate-x-0 h-screen overflow-y-clip lg:overflow-y-clip  overflow-x-clip
-          no-scrollbar bg-blue-900 transition-all duration-200 
+          no-scrollbar bg-[#223E66] transition-all duration-200 
           ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-72"}
-           ${hovered || sidebarOpen ? "w-60" : "w-20"}`}
+           ${sidebarExpanded ? "w-60" : "w-20"}`}
       >
         {/* Sidebar header */}
         <div className="flex justify-between p-4">
@@ -51,25 +57,43 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
           </button>
 
           <NavLink end to="/" >
-  <div className={`flex w-full  h-16 items-center justify-center transition-all duration-200 ${hovered || sidebarOpen ? 'p-0' : 'ml-[3px]'}`}>
-    <img className="w-[3rem] h-[3rem] object-contain" src={logo} alt="logo" />
-  </div>
-</NavLink>
-
+            <div className={`flex w-full  h-16 items-center justify-center
+           transition-all duration-200 ${sidebarExpanded ? 'p-0' : 'ml-[3px]'}`}>
+              <img className="w-[3rem] h-[3rem] object-contain" src={logo} alt="logo" />
+            </div>
+          </NavLink>
         </div>
 
         {/* Links */}
-        {/* Add overflow scroll here */}
-        <div className="space-y-8 mt-4">
+        <div className="space-y-8 mt-4 flex-1">
           <ul>
             <SideBarOption
-              path="/brands"
-              label="Marques"
-              icon={SiBrandfolder}
-              sidebarExpanded={hovered || sidebarOpen}
+              path="/avatars"
+              label="Avatars"
+              icon={TbMessageChatbot}
+              sidebarExpanded={sidebarExpanded}
+              pathname={pathname}
+            />
+            <SideBarOption
+              path="/profile"
+              label="Profile"
+              icon={CgProfile}
+              sidebarExpanded={sidebarExpanded}
+              pathname={pathname}
+            />
+            <SideBarOption
+              path="/payout"
+              label="Payout"
+              icon={TbMoneybag}
+              sidebarExpanded={sidebarExpanded}
               pathname={pathname}
             />
           </ul>
+        </div>
+
+        {/* WordCountProgress at the bottom */}
+        <div className="p-4">
+          <WordCountProgress sidebarExpanded={sidebarExpanded} />
         </div>
       </div>
     </div>

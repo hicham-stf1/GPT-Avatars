@@ -5,6 +5,9 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import Layout from './layout';
+import Profile from './pages/Profile';
+import Avatars from './pages/Avatars';
+import Payout from './pages/Payout';
 
 function App() {
 
@@ -13,7 +16,9 @@ function App() {
     <Routes>
       {/* <Route path="/login" element={<Login />} /> */}
       <Route path="/" element={<Layout><LandingPage /></Layout>} />
-      {/* <Route path="/about" element={<Layout><About /></Layout>} /> */}
+      <Route path="/profile" element={<Layout><Profile /></Layout>} />
+      <Route path="/avatars" element={<Layout><Avatars /></Layout>} />
+      <Route path="/payout" element={<Layout><Payout /></Layout>} />
     </Routes>
   </Router>
   )

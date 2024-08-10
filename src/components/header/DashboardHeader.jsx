@@ -50,7 +50,7 @@ function DashboardHeader({
             <hr className="w-px h-6 bg-slate-200 mx-3" />
             {/* <UserMenu align="right" /> */}
 
-            <div onClick={logOut} className='cursor-pointer'><IoLogOut color="teal" size={24} />
+            <div onClick={logOut} className='cursor-pointer  p-2 flex '>Log Out <span className='p-1'><IoLogOut color="#223E66" size={20} /></span> 
             </div>
 
 
