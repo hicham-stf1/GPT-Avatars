@@ -1,16 +1,22 @@
 import React from 'react'
 import Header from '../components/landing-page/Header'
 import Hero from '../components/landing-page/Hero'
+import FAQ from '../components/landing-page/FAQ'
+import Features from '../components/landing-page/Features'
+import Footer from '../components/landing-page/Footer'
 
 export default function LandingPage() {
   return (
     <div>
-        <div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#f3ad8f_100%)]"></div>
+        {/* <div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#f3ad8f_100%)]"></div> */}
 
       <Header />
       <Hero />
-      {/* header
-
+      <Features />
+     
+      <FAQ />
+      <Footer />
+ {/* header
       footer
       hero
       pricing
