@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import DashboardHeader from './components/header/DashboardHeader';
 import Sidebar from './components/sidebar/Sidebar';
+import { useLocation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const location = useLocation();
+
+  // Extracting the pathname (e.g., "/payout")
+  const path = location.pathname.substring(1);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -13,7 +19,7 @@ const Layout = ({ children }) => {
         <DashboardHeader
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
-          pageTitle="Analyses"
+          pageTitle={path}
         />
 
         <main className="px-4 sm:px-6 lg:px-8 py-2 w-full max-w-9xl mx-auto">

@@ -8,13 +8,16 @@ import Layout from './layout';
 import Profile from './pages/Profile';
 import Avatars from './pages/Avatars';
 import Payout from './pages/Payout';
+import Login from './pages/Login';
+import Register from './components/auth/Register';
 
 function App() {
 
   return (
     <Router>
     <Routes>
-      {/* <Route path="/login" element={<Login />} /> */}
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/" element={<LandingPage />} />
       <Route path="/profile" element={<Layout><Profile /></Layout>} />
       <Route path="/avatars" element={<Layout><Avatars /></Layout>} />

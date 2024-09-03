@@ -5,26 +5,26 @@ import indivAvatar from '../../assets/images/IndAvatar.png';
 const FeatureSection = () => {
   const features = [
     {
-      title: 'Property Manager Chatbot',
-      description: 'Answers tenant queries, provides lease information, and handles maintenance requests for property managers.',
+      title: 'Chatbot pour les Gestionnaires de Propriété',
+      description: 'Répond aux questions des locataires, fournit des informations sur les baux et gère les demandes de maintenance pour les gestionnaires de propriété.',
       imageUrl: propertyManager
     },
     {
-      title: 'Chatbot for Individuals',
-      description: 'Assists with property searches, offers legal advice, and provides market trends for individual users.',
+      title: 'Chatbot pour les Individus',
+      description: 'Aide à la recherche de propriétés, offre des conseils juridiques et fournit des tendances du marché pour les utilisateurs individuels.',
       imageUrl: indivAvatar
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50  lg:py-24">
+    <section className="py-16 bg-gray-50 lg:py-24">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-xl mx-auto text-center xl:max-w-3xl">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl">
-            The Latest and Greatest Avatar Helpers
+            Les Derniers et Meilleurs Assistants Avatars
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Discover our innovative chatbots designed to assist you in property management and personal tasks with ease and efficiency.
+            Découvrez nos chatbots innovants conçus pour vous assister dans la gestion de propriété et les tâches personnelles avec facilité et efficacité.
           </p>
         </div>
 
